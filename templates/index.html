@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4" style="text-align: center; color: transparent;
+                text-shadow: -4px 4px rgba(179,179,179,.4), -3px 3px rgba(153,153,153,.2), -2px 2px rgba(179,179,179,.2), -1px 1px rgba(179,179,179,.2), 0px 0px rgba(128,128,128,.5), 1px -1px rgba(77,77,77,.6), 2px -2px rgba(77,77,77,.7), 3px -3px rgba(82,82,82,.8), 4px -4px rgba(77,77,77,.9), 5px -5px rgba(77,77,77,1);">TEXT SUMMARIZATION</h1>
+                <p class="lead" style="text-align: center; text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">Get the best Summary for the text</p>
+                <hr class="my-4">
+            </div>
+        </div>
+        <form action="/analyze" method="POST">
+            <textarea name="rawtext" class="form-control" , rows="3" placeholder="Enter the text" required></textarea>
+            <br>
+            <select name="sourcelang" id="trans" required>
+                <option disabled="True" value=""selected>-- Select your language --</option>
+                <option name="en">English</option>
+                <option name="hi">Hindi</option>
+                <option name="te">Telugu</option>
+                <option name="ta">Tamil</option>
+                <option name="de">German</option>
+                <option name="ar">Arabic</option>
+                <option name="zh-TW">Chinese</option>
+                <option name="bn">Bengali</option>
+                <option name="fr">French</option>
+              </select> &nbsp;&nbsp;
+            <select name="Translateinto" id="trans" required>
+                <option disabled="True" value=""selected>-- Select the language to translate --</option>
+                <option name="en">English</option>
+                <option name="hi">Hindi</option>
+                <option name="te">Telugu</option>
+                <option name="ta">Tamil</option>
+                <option name="de">German</option>
+                <option name="ar">Arabic</option>
+                <option name="zh-TW">Chinese</option>
+                <option name="bn">Bengali</option>
+                <option name="fr">French</option>
+              </select> &nbsp;&nbsp;
+            <button type="submit" class="btn btn-outline-success">Submit</button>
+        </form>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>

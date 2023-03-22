@@ -1,0 +1,47 @@
+body {
+    background: #959595;
+    background: linear-gradient(to right, #959595 0%, #0D0D0D 46%, #010101 50%, #0A0A0A 53%, #4E4E4E 76%, #383838 87%, #1B1B1B 100%);
+}
+
+.jumbotron {
+    background: #CFE7fA;
+    background: linear-gradient(to right, #CFE7fA 0%, #6393C1 100%);
+}
+
+.original_title {
+    background-color: #f77008;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.summary_title {
+    background-color: greenyellow;
+    text-align: center;
+    color: #f77008;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px;
+    display: flex;
+    margin-left: 5px;
+}
+
+.srt {
+    display: flex;
+    flex-direction: row;
+}
+
+.originaltxt {
+    background-color: orangered;
+    padding: 20px;
+}
+
+.summarizedtxt {
+    background-color: greenyellow;
+    padding: 20px;
+    margin-left: 10px;
+}
