@@ -1,7 +1,13 @@
-from flask import Flask,  render_template, request 
+from flask import Flask, jsonify,  render_template, request
+import json   
 from textsum import summarizer, to_eng, text_translate
+import openai
+import gradio as gr
+import re
 from gtts import gTTS
 import os
+
+
 
 app = Flask(__name__)
 sum = '' 
@@ -36,7 +42,6 @@ def speak():
     global destlang
     desttxt = None
     print(destlang)
-    x=destlang 
     if destlang=="Hindi":
         desttxt= 'hi'
     if destlang == "English":
@@ -60,6 +65,36 @@ def speak():
     text_to_speech.save('test.mp3')
     os.system('test.mp3')
     return ''
+
+openai.api_key = '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'
+
+def generate_message(prompt):
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt=prompt,
+        temperature=0.7,
+        max_tokens=1025,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=["\n", "Human:", "AI:"]
+    )
+    message = response.choices[0].text.strip()
+    return message
+
+@app.route("/chatbot", methods=['GET','POST'])
+def chatbot():
+    return render_template('chatbot.html')
+
+
+@app.route('/api/chatbot', methods=['POST'])
+def chatbot_api():
+    data = json.loads(request.data)
+    prompt = data['message']
+    message = generate_message(prompt)
+    print(message)
+    return jsonify({'message': message})
+
 
 
 if __name__ == "__main__":
