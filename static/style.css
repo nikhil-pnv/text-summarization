@@ -1,6 +1,5 @@
 body {
-    background: #959595;
-    background: linear-gradient(to right, #959595 0%, #0D0D0D 46%, #010101 50%, #0A0A0A 53%, #4E4E4E 76%, #383838 87%, #1B1B1B 100%);
+    background: none repeat 0 0 #90c48d;
 }
 
 .jumbotron {
@@ -82,9 +81,6 @@ body {
     }
 }
 
-
-/* Shake animation */
-
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -103,9 +99,6 @@ body {
     }
 }
 
-
-/* Scale animation */
-
 @keyframes scale {
     0% {
         transform: scale(1);
@@ -118,23 +111,74 @@ body {
     }
 }
 
-
-/* Chatbox styles */
-
 #chatbox {
-    background-color: #f1f1f1;
-    border: 2px solid #ccc;
-    height: 200px;
+    background-color: #f4ecec;
+    backdrop-filter: blur(10px);
+    border: 2px solid #151414;
+    border-width: 5px;
+    border-style: solid;
+    height: 600px;
     overflow-y: scroll;
     padding: 10px;
-    animation: shake 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
 }
 
+#chatbox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    z-index: 1;
+    animation: border 2s linear infinite;
+}
 
-/* Message input styles */
+@keyframes border {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+#chatbox p {
+    max-width: 70%;
+    padding: 8px;
+    margin: 4px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#chatbox p:nth-child(even) {
+    align-self: flex-start;
+    background-color: #f1f0f0;
+}
+
+#chatbox p:nth-child(odd) {
+    align-self: flex-end;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#chat-form {
+    display: flex;
+    justify-content: center;
+}
 
 #message-input {
-    width: 70%;
+    width: 50%;
     padding: 10px;
     border: none;
     border-radius: 20px;
@@ -142,11 +186,8 @@ body {
     animation: scale 0.5s ease-in-out;
 }
 
-
-/* Chatbot message styles */
-
 #chatbox p:last-of-type {
-    background-color: #d3d3d3;
+    background-color: #614da5;
     padding: 10px;
     margin: 10px 0;
     border-radius: 10px;
