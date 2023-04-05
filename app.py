@@ -66,21 +66,23 @@ def speak():
     os.system('test.mp3')
     return ''
 
-openai.api_key = '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'
+openai.api_key = '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'  
 
 def generate_message(prompt):
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        model="text-davinci-003",
         prompt=prompt,
-        temperature=0.7,
+        temperature=0.0,
         max_tokens=1025,
-        top_p=1,
+        n=1,
         frequency_penalty=0,
         presence_penalty=0,
-        stop=["\n", "Human:", "AI:"]
+        stop=None
     )
+    print(response)
     message = response.choices[0].text.strip()
     return message
+    
 
 @app.route("/chatbot", methods=['GET','POST'])
 def chatbot():
@@ -95,9 +97,7 @@ def chatbot_api():
     print(message)
     return jsonify({'message': message})
 
-
-
 if __name__ == "__main__":
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True)
 
                         
