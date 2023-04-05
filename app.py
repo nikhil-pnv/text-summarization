@@ -66,7 +66,7 @@ def speak():
     os.system('test.mp3')
     return ''
 
-openai.api_key = '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'  
+openai.api_key = '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'  
 
 def generate_message(prompt):
     response = openai.Completion.create(
@@ -100,4 +100,3 @@ def chatbot_api():
 if __name__ == "__main__":
     app.run(debug=True)
 
-                        
